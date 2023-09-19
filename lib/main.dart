@@ -1,3 +1,4 @@
+import 'package:dialogs/dialogs/alter_dialog.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -44,7 +45,9 @@ class _DialogSetStateState extends State<DialogSetState> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            ElevatedButton(onPressed: () {}, child: const Text('Show Dialog'))
+            ElevatedButton(
+                onPressed: () => alterDialogSetState(context),
+                child: const Text('Show Dialog'))
           ],
         ),
       ), // This trailing comma makes auto-formatting nicer for build methods.
