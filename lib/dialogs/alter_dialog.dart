@@ -1,8 +1,11 @@
-import 'package:dialogs/widgets/basic_test_button.dart';
+import 'package:dialogs/widgets/basic_button.dart';
 import 'package:flutter/material.dart';
 
-int goalCount = 0;
-alterDialogSetState(BuildContext context) {
+alterDialogSetState({
+  required BuildContext context,
+  required Function() closePressed,
+  required int goalCount,
+}) {
   return showDialog(
       context: context,
       builder: (context) => StatefulBuilder(
@@ -20,7 +23,7 @@ alterDialogSetState(BuildContext context) {
                       width: 120,
                       height: 100,
                     ),
-                    basicTextButton(
+                    basicButton(
                         buttonText: 'Goal',
                         onPressed: () {
                           setDialog(() {
@@ -34,11 +37,8 @@ alterDialogSetState(BuildContext context) {
               actions: [
                 const Divider(thickness: 1.5),
                 Center(
-                    child: basicTextButton(
-                        buttonText: '닫기',
-                        onPressed: () {
-                          Navigator.pop(context);
-                        })),
+                    child:
+                        basicButton(buttonText: '닫기', onPressed: closePressed)),
               ],
             );
           }));

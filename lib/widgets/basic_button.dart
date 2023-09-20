@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-basicTextButton({
+basicButton({
   required String buttonText,
   required Function() onPressed,
 }) {

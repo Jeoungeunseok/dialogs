@@ -31,26 +31,28 @@ class DialogSetState extends StatefulWidget {
 }
 
 class _DialogSetStateState extends State<DialogSetState> {
+  int goalCount = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(
-          widget.title,
-          style: const TextStyle(fontSize: 20),
-        ),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            ElevatedButton(
-                onPressed: () => alterDialogSetState(context),
-                child: const Text('Show Dialog'))
-          ],
-        ),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
-    );
+        appBar: AppBar(
+            backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+            title: Text(widget.title, style: const TextStyle(fontSize: 20))),
+        body: Center(
+            child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+              ElevatedButton(
+                  onPressed: () => alterDialogSetState(
+                      goalCount: goalCount,
+                      context: context,
+                      closePressed: () {
+                        setState(() {
+                          Navigator.pop(context);
+                        });
+                      }),
+                  child: const Text('Show Dialog SetState'))
+            ])));
   }
 }
